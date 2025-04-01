@@ -12,7 +12,7 @@ function App() {
         <header>
           <MyNav tema="primary" />
         </header>
-        <main className="flex-grow-1 text-center">
+        <main className="flex-grow-1 text-center ">
           <div className="d-flex justify-content-center">
             <Welcome />
           </div>
