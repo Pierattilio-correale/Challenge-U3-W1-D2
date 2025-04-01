@@ -2,7 +2,9 @@ const MyFooter = function () {
   return (
     <>
       <footer className="bg-warning text-center">
-        <p> © - Epicode 2025</p>
+        <p>
+          © - Epicode <span>{new Date().getFullYear()}</span>
+        </p>
       </footer>
     </>
   );
