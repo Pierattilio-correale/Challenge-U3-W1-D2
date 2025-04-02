@@ -50,9 +50,15 @@ class BookList extends Component {
           </Row>
         </Container>
 
-        {this.props.listBook.map((libro) => (
-          <SingleBook key={libro.asin} oneBook={[libro]} />
-        ))}
+        {this.props.listBook
+          .filter((libro) =>
+            libro.title
+              .toLowerCase()
+              .includes(this.state.formPower.change.toLowerCase())
+          )
+          .map((libro) => (
+            <SingleBook key={libro.asin} oneBook={[libro]} />
+          ))}
       </>
     );
   }
