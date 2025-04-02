@@ -60,7 +60,7 @@ class AllTheBoocks extends Component {
           </Row>
 
           <Row className="d-flex justify-content-center">
-            {this.state.ActiveBooks.map((libro) => (
+            {this.state.ActiveBooks.slice(0, 12).map((libro) => (
               <Col
                 className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 g-3  "
                 key={libro.asin}
@@ -78,6 +78,9 @@ class AllTheBoocks extends Component {
               </Col>
             ))}
           </Row>
+        </Container>
+        <Container className="my-5">
+          <Row></Row>
         </Container>
       </>
     );
