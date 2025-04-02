@@ -9,6 +9,16 @@ class BookList extends Component {
       change: "",
     },
   };
+  SearchType = (e) => {
+    this.setState({
+      formPower: {
+        ...this.state.formPower,
+        change: e.target.value,
+      },
+    });
+    return this.state.formPower;
+  };
+
   render() {
     return (
       <>
@@ -48,3 +58,20 @@ class BookList extends Component {
   }
 }
 export default BookList;
+
+// SearchType = (letter) => {
+//     this.setState({ change: e.target.value });
+//   };
+// {this.props.listBook.filter(this.state.formPower).map((libro) => (
+//     <SingleBook key={libro.asin} oneBook={[libro]} />
+//   ))}
+
+// SearchType = (e) => {
+//     this.setState({
+//       formPower: {
+//         ...this.state.formPower,
+//         change: e.target.value,
+//       },
+//     });
+//     return this.state.formPower;
+//   };
