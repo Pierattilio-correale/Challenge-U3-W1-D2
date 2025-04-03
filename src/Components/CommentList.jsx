@@ -1,5 +1,5 @@
 import { Component } from "react";
-import AddComment from "./AddComment";
+
 import { ListGroup } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 

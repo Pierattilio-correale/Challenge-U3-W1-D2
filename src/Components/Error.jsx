@@ -1,6 +1,4 @@
 import { Component } from "react";
-import AddComment from "./AddComment";
-import CommentList from "./CommentList";
 import { Alert } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 

@@ -44,6 +44,7 @@ class AddComment extends Component {
       <>
         <Form className=" my-4">
           <Form.Group>
+            <h4 className="mb-3">Aggiungi un commento!</h4>
             <Form.Control
               type="text"
               placeholder="Scrivi un commento..."
@@ -55,10 +56,10 @@ class AddComment extends Component {
               }}
             />
           </Form.Group>
-          <Form.Group className="mb-3">
+          <Form.Group className="my-3">
             <Form.Label>Che voto daresti ?</Form.Label>
             <Form.Select
-              aria-label="numero di persone"
+              aria-label="Voto da dare"
               value={this.state.rate}
               onChange={(e) => {
                 this.setState({
@@ -73,7 +74,7 @@ class AddComment extends Component {
               <option value="5">5</option>
             </Form.Select>
           </Form.Group>
-          <Button variant="primary" onClick={this.addComment} className="my-3">
+          <Button onClick={this.addComment} className="my-3 btn btn-warning">
             Invia Commento
           </Button>
         </Form>
