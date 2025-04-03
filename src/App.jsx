@@ -6,6 +6,7 @@ import Welcome from "./Components/Welcome";
 import AllTheBoocks from "./Components/AllTheBoocks";
 import SingleBook from "./Components/SingleBook";
 import { Card, Button, Col, Container, Row } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import romanceBooks from "../Data/romance.json";
 import historyBooks from "../Data/history.json";
