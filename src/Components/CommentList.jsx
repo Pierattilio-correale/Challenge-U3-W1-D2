@@ -60,12 +60,12 @@ class CommentList extends Component {
   render() {
     return (
       <>
-        <ListGroup className="my-3 ">
+        <ListGroup className="my-3 bg ">
           {this.state.recensioni.map((recensioniObject) => {
             return (
               <ListGroup.Item
                 key={recensioniObject._id}
-                className="d-flex justify-content-between"
+                className="d-flex justify-content-between bg-success"
               >
                 <div>
                   {recensioniObject.comment} {recensioniObject.rate}/5{" "}
