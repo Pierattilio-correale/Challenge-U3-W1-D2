@@ -57,6 +57,16 @@ class CommentList extends Component {
   componentDidMount() {
     this.getComments();
   }
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("Previous prop:", prevProps.prop);
+    console.log("Current prop:", this.props.prop);
+
+    if (this.props.prop !== prevProps.prop) {
+      this.getComments();
+    } else {
+      console.log("Il prop non è cambiato.");
+    }
+  };
   render() {
     return (
       <>

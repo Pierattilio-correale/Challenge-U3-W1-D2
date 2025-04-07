@@ -86,7 +86,7 @@ class BookList extends Component {
               {this.state.click.selected && (
                 <CommentArea
                   prop={this.state.click.selected}
-                  key={this.state.click.selected}
+                  // key={this.state.click.selected}
                 />
               )}
             </Col>
