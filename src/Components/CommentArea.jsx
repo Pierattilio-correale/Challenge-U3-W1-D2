@@ -3,6 +3,7 @@ import AddComment from "./AddComment";
 import CommentList from "./CommentList";
 import Loading from "./Loading";
 import Error from "./Error";
+import { Card, Button, Col, Container, Row } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 
 class CommentArea extends Component {
@@ -54,10 +55,16 @@ class CommentArea extends Component {
       <>
         {myId && (
           <>
-            <Loading prop={myId} />
-            <Error prop={myId} />
-            <CommentList prop={myId} />
-            <AddComment prop={myId} />
+            <Container>
+              <Row>
+                <Col className="col-12">
+                  <Loading prop={myId} />
+                  <Error prop={myId} />
+                  <CommentList prop={myId} />
+                  <AddComment prop={myId} />
+                </Col>
+              </Row>
+            </Container>
           </>
         )}
       </>
