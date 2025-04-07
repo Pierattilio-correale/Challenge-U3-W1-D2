@@ -37,15 +37,29 @@ class CommentArea extends Component {
   componentDidMount() {
     this.getComments();
   }
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("Previous prop:", prevProps.prop);
+    console.log("Current prop:", this.props.prop);
+
+    if (this.props.prop !== prevProps.prop) {
+      this.getComments();
+    } else {
+      console.log("Il prop non è cambiato.");
+    }
+  };
   render() {
     const myId = this.props.prop;
 
     return (
       <>
-        <Loading prop={myId} />
-        <Error prop={myId} />
-        <CommentList prop={myId} />
-        <AddComment prop={myId} />
+        {myId && (
+          <>
+            <Loading prop={myId} />
+            <Error prop={myId} />
+            <CommentList prop={myId} />
+            <AddComment prop={myId} />
+          </>
+        )}
       </>
     );
   }
