@@ -84,7 +84,10 @@ class BookList extends Component {
 
             <Col xs={12} md={6} className="d-flex justify-content-center ">
               {this.state.click.selected && (
-                <CommentArea prop={this.state.click.selected} />
+                <CommentArea
+                  prop={this.state.click.selected}
+                  key={this.state.click.selected}
+                />
               )}
             </Col>
           </Row>
