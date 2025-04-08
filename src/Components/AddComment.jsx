@@ -1,20 +1,32 @@
-import { Component } from "react";
+import { Component, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 const URL = "https://striveschool-api.herokuapp.com/api/comments";
 
-class AddComment extends Component {
-  state = {
+const AddComment = function (props) {
+  // state = {
+  //   commenti: "",
+  //   rate: 1,
+  // };
+
+  //metodo con due useState:
+  // const [commenti, setCommenti] = useState("");
+  // const [rate, setRate] = useState(1);
+
+  //metodo con un solo useState:
+  const [cr, setCr] = useState({
     commenti: "",
     rate: 1,
-  };
-  addComment = () => {
-    const myId = this.props.prop;
+  });
+
+  useState();
+  const addComment = () => {
+    const myId = props.prop;
     fetch(URL, {
       method: "POST",
       body: JSON.stringify({
-        comment: this.state.commenti,
-        rate: this.state.rate,
-        elementId: this.props.prop,
+        comment: cr.commenti, //commenti,
+        rate: cr.rate,
+        elementId: props.prop,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -26,9 +38,13 @@ class AddComment extends Component {
         if (response.ok) {
           alert("COMMENTO SALVATO!");
 
-          this.setState({
+          // this.setState({
+          //   commenti: "",
+          // });
+          setCr((prev) => ({
+            ...prev,
             commenti: "",
-          });
+          }));
         } else {
           throw new Error("errore nella response");
         }
@@ -39,48 +55,54 @@ class AddComment extends Component {
       });
   };
 
-  render() {
-    return (
-      <>
-        <Form className=" my-4">
-          <Form.Group>
-            <h4 className="mb-3">Aggiungi un commento!</h4>
-            <Form.Control
-              type="text"
-              placeholder="Scrivi un commento..."
-              value={this.state.commenti}
-              onChange={(e) => {
-                this.setState({
-                  commenti: e.target.value,
-                });
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="my-3">
-            <Form.Label>Che voto daresti ?</Form.Label>
-            <Form.Select
-              aria-label="Voto da dare"
-              value={this.state.rate}
-              onChange={(e) => {
-                this.setState({
-                  rate: e.target.value,
-                });
-              }}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </Form.Select>
-          </Form.Group>
-          <Button onClick={this.addComment} className="my-3 btn btn-warning">
-            Invia Commento
-          </Button>
-        </Form>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Form className=" my-4">
+        <Form.Group>
+          <h4 className="mb-3">Aggiungi un commento!</h4>
+          <Form.Control
+            type="text"
+            placeholder="Scrivi un commento..."
+            value={cr.commenti}
+            onChange={(e) => {
+              // this.setState({
+              //   commenti: e.target.value,
+              // });
+              setCr((prev) => ({
+                ...prev,
+                commenti: e.target.value,
+              }));
+            }}
+          />
+        </Form.Group>
+        <Form.Group className="my-3">
+          <Form.Label>Che voto daresti ?</Form.Label>
+          <Form.Select
+            aria-label="Voto da dare"
+            value={cr.rate}
+            onChange={(e) => {
+              // this.setState({
+              //   rate: e.target.value,
+              // });
+              setCr((prev) => ({
+                ...prev,
+                rate: e.target.value,
+              }));
+            }}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Form.Select>
+        </Form.Group>
+        <Button onClick={addComment} className="my-3 btn btn-warning">
+          Invia Commento
+        </Button>
+      </Form>
+    </>
+  );
+};
 
 export default AddComment;

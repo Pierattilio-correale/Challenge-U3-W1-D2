@@ -10,81 +10,77 @@ import historyBooks from "../../Data/history.json";
 import horrorBooks from "../../Data/horror.json";
 import fantasyBooks from "../../Data/fantasy.json";
 import scifiBooks from "../../Data/scifi.json";
+import { useState } from "react";
 
-class AllTheBoocks extends Component {
-  state = {
-    ActiveBooks: romanceBooks,
+const AllTheBoocks = function () {
+  // state = {
+  //   ActiveBooks: romanceBooks,
+  // };
+  const [activeBooks, setActiveBooks] = useState(romanceBooks);
+
+  const changeType = (category) => {
+    // this.setState({ ActiveBooks: category });
+    setActiveBooks(category);
   };
 
-  changeType = (category) => {
-    this.setState({ ActiveBooks: category });
-  };
+  return (
+    <>
+      <Container className="mb-3">
+        <Row className="d-flex justify-content-center mb-3">
+          <div className="d-md-flex  justify-content-center">
+            <Button
+              onClick={() => changeType(romanceBooks)}
+              className="m-2 bg-black"
+            >
+              Romance
+            </Button>
+            <Button
+              onClick={() => changeType(historyBooks)}
+              className="m-2 bg-warning text-dark"
+            >
+              History
+            </Button>
+            <Button
+              onClick={() => changeType(horrorBooks)}
+              className="m-2 bg-danger"
+            >
+              Horror
+            </Button>
+            <Button
+              onClick={() => changeType(fantasyBooks)}
+              className="m-2 bg-success"
+            >
+              Fantasy
+            </Button>
+            <Button onClick={() => changeType(scifiBooks)} className="m-2">
+              Sci-Fi
+            </Button>
+          </div>
+        </Row>
 
-  render() {
-    return (
-      <>
-        <Container className="mb-3">
-          <Row className="d-flex justify-content-center mb-3">
-            <div className="d-md-flex  justify-content-center">
-              <Button
-                onClick={() => this.changeType(romanceBooks)}
-                className="m-2 bg-black"
-              >
-                Romance
-              </Button>
-              <Button
-                onClick={() => this.changeType(historyBooks)}
-                className="m-2 bg-warning text-dark"
-              >
-                History
-              </Button>
-              <Button
-                onClick={() => this.changeType(horrorBooks)}
-                className="m-2 bg-danger"
-              >
-                Horror
-              </Button>
-              <Button
-                onClick={() => this.changeType(fantasyBooks)}
-                className="m-2 bg-success"
-              >
-                Fantasy
-              </Button>
-              <Button
-                onClick={() => this.changeType(scifiBooks)}
-                className="m-2"
-              >
-                Sci-Fi
-              </Button>
-            </div>
-          </Row>
-
-          <Row className="d-flex justify-content-center">
-            {this.state.ActiveBooks.slice(0, 12).map((libro) => (
-              <Col
-                className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 g-3  "
-                key={libro.asin}
-              >
-                <Card className="d-flex flex-column h-100 trasformazione">
-                  <Card.Img variant="top" src={libro.img} />
-                  <Card.Body className="d-flex flex-column bg-dark text-white">
-                    <Card.Title>{libro.title}</Card.Title>
-                    <Card.Text className="flex-grow-1">
-                      {libro.price} €
-                    </Card.Text>
-                    <Button variant="outline-warning">Dettagli</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Container className="my-5">
-          <Row></Row>
-        </Container>
-      </>
-    );
-  }
-}
+        <Row className="d-flex justify-content-center">
+          {activeBooks.slice(0, 12).map((libro) => (
+            <Col
+              className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 g-3  "
+              key={libro.asin}
+            >
+              <Card className="d-flex flex-column h-100 trasformazione">
+                <Card.Img variant="top" src={libro.img} />
+                <Card.Body className="d-flex flex-column bg-dark text-white">
+                  <Card.Title>{libro.title}</Card.Title>
+                  <Card.Text className="flex-grow-1">{libro.price} €</Card.Text>
+                  <Button variant="outline-warning">Dettagli</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+      <Container className="my-5">
+        <Row></Row>
+      </Container>
+    </>
+  );
+};
 
 export default AllTheBoocks;
