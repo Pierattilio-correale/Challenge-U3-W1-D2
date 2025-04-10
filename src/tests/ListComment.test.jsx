@@ -15,7 +15,7 @@ describe("check  ListComment before and after fecth", () => {
     const commentList = screen.queryAllByTestId("list-item");
     expect(commentList).toHaveLength(0);
   });
-  it("ListComment after promis ", async () => {
+  it("ListComment after promis first try ", async () => {
     render(
       <>
         <CommentList /> <BookList listBook={romanceBooks} />
@@ -23,6 +23,32 @@ describe("check  ListComment before and after fecth", () => {
     );
 
     const myCardCliccked = screen.getAllByTestId("Click-broken")[1];
+
+    fireEvent.click(myCardCliccked);
+    const commentList = await screen.findAllByTestId("list-item");
+    expect(commentList).toBeTruthy();
+  });
+  it("ListComment after promis second try", async () => {
+    render(
+      <>
+        <CommentList /> <BookList listBook={romanceBooks} />
+      </>
+    );
+
+    const myCardCliccked = screen.getAllByTestId("Click-broken")[2];
+
+    fireEvent.click(myCardCliccked);
+    const commentList = await screen.findAllByTestId("list-item");
+    expect(commentList).toBeTruthy();
+  });
+  it("ListComment after promis third try", async () => {
+    render(
+      <>
+        <CommentList /> <BookList listBook={romanceBooks} />
+      </>
+    );
+
+    const myCardCliccked = screen.getAllByTestId("Click-broken")[3];
 
     fireEvent.click(myCardCliccked);
     const commentList = await screen.findAllByTestId("list-item");
