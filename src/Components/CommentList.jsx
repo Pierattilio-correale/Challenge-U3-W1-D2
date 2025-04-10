@@ -83,6 +83,7 @@ const CommentList = function (props) {
         {recensioni.map((recensioniObject) => {
           return (
             <ListGroup.Item
+              data-testid="list-item"
               key={recensioniObject._id}
               className="d-flex justify-content-between bg-success"
             >
