@@ -37,6 +37,7 @@ const AllTheBoocks = function () {
             <Button
               onClick={() => changeType(historyBooks)}
               className="m-2 bg-warning text-dark"
+              data-testid="Click-changehistory"
             >
               History
             </Button>

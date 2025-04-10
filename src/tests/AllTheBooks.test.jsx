@@ -5,17 +5,23 @@ import {
   fireEvent,
   queryAllByTestId,
 } from "@testing-library/react";
-import BookList from "../Components/BookList";
-import romanceBooks from "../../Data/romance.json";
-import CommentList from "../Components/CommentList";
+
 import AllTheBoocks from "../Components/AllTheBoocks";
-describe("price change on click ", () => {
+describe("price change on click firstButton", () => {
   it("changes on click", () => {
     render(<AllTheBoocks />);
 
     const buttonHorror = screen.getAllByTestId("Click-changehorror")[0];
     fireEvent.click(buttonHorror);
     const bookDi0Price = screen.getAllByText(/7.92 €/i)[0];
+    expect(bookDi0Price).toBeTruthy();
+  });
+  it("changes on click secondButton", () => {
+    render(<AllTheBoocks />);
+
+    const buttonHorror = screen.getAllByTestId("Click-changehistory")[0];
+    fireEvent.click(buttonHorror);
+    const bookDi0Price = screen.getAllByText(/17.39 €/i)[0];
     expect(bookDi0Price).toBeTruthy();
   });
 });
