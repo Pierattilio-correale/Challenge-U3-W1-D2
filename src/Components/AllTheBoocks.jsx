@@ -43,6 +43,7 @@ const AllTheBoocks = function () {
             <Button
               onClick={() => changeType(horrorBooks)}
               className="m-2 bg-danger"
+              data-testid="Click-changehorror"
             >
               Horror
             </Button>
@@ -68,7 +69,9 @@ const AllTheBoocks = function () {
                 <Card.Img variant="top" src={libro.img} />
                 <Card.Body className="d-flex flex-column bg-dark text-white">
                   <Card.Title>{libro.title}</Card.Title>
-                  <Card.Text className="flex-grow-1">{libro.price} €</Card.Text>
+                  <Card.Text data-testid="Click-change" className="flex-grow-1">
+                    {libro.price} €
+                  </Card.Text>
                   <Button variant="outline-warning">Dettagli</Button>
                 </Card.Body>
               </Card>
