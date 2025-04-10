@@ -65,7 +65,7 @@ const CommentArea = function (props) {
     <>
       {myId && (
         <>
-          <Container>
+          <Container data-testid="CommentArea">
             <Row>
               <Col className="col-12">
                 <Loading prop={myId} />

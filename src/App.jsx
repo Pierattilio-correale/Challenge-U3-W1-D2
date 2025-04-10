@@ -41,7 +41,7 @@ const App = function () {
           <div>
             <Container className="my-5">
               <Row className="d-flex justify-content-center">
-                <BookList listBook={romanceBooks} />
+                <BookList listBook={romanceBooks} data-testid="Card-libri" />
               </Row>
             </Container>
           </div>

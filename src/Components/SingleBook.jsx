@@ -18,12 +18,14 @@ const SingleBook = function (props) {
     <>
       <Col className="g-3">
         <Card
+          data-testid="Card-libri"
           className={`d-flex flex-column h-100 ${
             props.selectedBook === libro.asin ? "selezione" : ""
           }`}
           key={libro.asin}
         >
           <Card.Img
+            data-testid="Click-broken"
             variant="top"
             src={libro.img}
             onClick={(e) => {

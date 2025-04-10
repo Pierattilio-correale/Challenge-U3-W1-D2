@@ -1,9 +1,9 @@
-import SingleBook from "./SingleBook";
 import Form from "react-bootstrap/Form";
 import { Card, Button, Col, Container, Row } from "react-bootstrap";
 import { Component } from "react";
 import CommentArea from "./CommentArea";
 import { useState } from "react";
+import SingleBook from "./SingleBook";
 
 const BookList = function (props) {
   // state = {
@@ -51,6 +51,7 @@ const BookList = function (props) {
   };
 
   const libro = props.listBook[0];
+
   return (
     <>
       <h3>esercizio dei multipli libri</h3>
@@ -63,6 +64,7 @@ const BookList = function (props) {
                 <Form.Control
                   type="text"
                   value={formPower.change}
+                  placeholder="Cerca qui il tuo libro preferito"
                   onChange={(e) => {
                     // this.setState({
                     //   formPower: {
